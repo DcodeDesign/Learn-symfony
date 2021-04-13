@@ -1,11 +1,11 @@
 <div class="d-flex flex-column p-3 text-white bg-dark" style="height:100vh ;width: 280px;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        {#<svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>#}
-        <span class="fs-4">Pokedex</span>
+    <a href="/" style="margin:0 auto;" class="d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none text-center">
+        {# <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg> #}
+        <span  class="fs-3 d-flex align-items-center justify-content-center"> <ion-icon name="invert-mode-outline"></ion-icon> Pokedex</span>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
-   {#     <li class="mb-1 nav-item">
+        {# <li class="mb-1 nav-item">
             <button class="btn btn-toggle nav-link active align-items-center rounded collapsed button-sidebar"
                     data-bs-toggle="collapse"
                     data-bs-target="#home-collapse"
@@ -16,9 +16,9 @@
             <div class="collapse show" id="home-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                     <li><a href="https://127.0.0.1:8002/" class=" rounded" > Liste Pokemons </a></li>
-                    <li><a href="https://127.0.0.1:8002/pkns/insert" class=" rounded" > Insert Pokemons </a></li>
-                    <li><a href="https://127.0.0.1:8002/pkns/update" class=" rounded" > Update Pokemons </a></li>
-                    <li><a href="https://127.0.0.1:8002/pkns/delete" class=" rounded" > Delete Pokemons </a></li>
+                    <li><a href="https://127.0.0.1:8002/pkns/insert" class="rounded" > Insert Pokemons </a></li>
+                    <li><a href="https://127.0.0.1:8002/pkns/update" class="rounded" > Update Pokemons </a></li>
+                    <li><a href="https://127.0.0.1:8002/pkns/delete" class="rounded" > Delete Pokemons </a></li>
                 </ul>
             </div>
         </li>
@@ -29,14 +29,16 @@
                     data-bs-target="#pokemons-collapse"
                     aria-expanded="false">
                 <span>Pokemons</span>
-                <svg class="bi me-2 float-right" width="16" height="16"><use xlink:href="#pokemons"/></svg>
+                <ion-icon name="logo-octocat"></ion-icon>
             </button>
             <div class="collapse" id="pokemons-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="https://127.0.0.1:8002/" > Liste des Pokemons </a></li>
-                    <li><a href="https://127.0.0.1:8002/pkns/insert" > Créer un Pokemon </a></li>
-                    {#<li><a href="https://127.0.0.1:8002/pkns/update" > Update Pokemons </a></li>
-                    <li><a href="https://127.0.0.1:8002/pkns/delete" > Delete Pokemons </a></li>#}
+                    <li><a href="{{ path('pkns') }}" class="rounded"> Liste des Pokemons </a></li>
+                    <li><a href="{{ path('pkns_insert') }}" class="rounded"> Créer un Pokemon </a></li>
+                    {#<li><a href="{{ url('pkns_insert') }}" class="rounded"> Créer un Pokemon </a></li> #}
+
+                    {# <li><a href="https://127.0.0.1:8002/pkns/update" > Update Pokemons </a></li>
+                    <li><a href="https://127.0.0.1:8002/pkns/delete" > Delete Pokemons </a></li> #}
                 </ul>
             </div>
         </li>
@@ -45,46 +47,49 @@
                     data-bs-toggle="collapse"
                     data-bs-target="#dresseurs-collapse" aria-expanded="false">
                 <span>Dresseurs</span>
-                <svg class="bi me-2 float-right" width="16" height="16"><use xlink:href="#dresseurs"/></svg>
+                <ion-icon name="people-circle-outline"></ion-icon>
             </button>
             <div class="collapse" id="dresseurs-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="https://127.0.0.1:8002/dresseurs/pkns/" > liste des Dresseurs </a></li>
-                    <li><a href="https://127.0.0.1:8002/dresseurs/pkns/insert" > Creer un dresseurs </a></li>
-                   {# <li><a href="https://127.0.0.1:8002/dresseurs/pkns/update" > Update Dresseurs </a></li>
-                    <li><a href="https://127.0.0.1:8002/dresseurs/pkns/delete" > Delete Dresseurs </a></li>#}
+                    <li><a href="{{ path('dresseurs_pkns') }}" class="rounded"> liste des Dresseurs </a></li>
+                    <li><a href="{{ path('dresseurs_pkns_insert') }}" class="rounded"> Creer un dresseurs </a>
+                    </li>
+                    {# <li><a href="https://127.0.0.1:8002/dresseurs/pkns/update" > Update Dresseurs </a></li>
+                    <li><a href="https://127.0.0.1:8002/dresseurs/pkns/delete" > Delete Dresseurs </a></li> #}
                 </ul>
             </div>
         </li>
-        {#<li class="mb-1 nav-item">
-            <button class="btn btn-toggle nav-link align-items-center rounded collapsed button-sidebar"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#details-collapse" aria-expanded="false">
-                <span>Details</span>
-                <svg class="bi me-2 float-right" width="16" height="16"><use xlink:href="#details"/></svg>
-            </button>
-            <div class="collapse" id="details-collapse">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="https://127.0.0.1:8002/details/pkn/" > details Pokemon </a></li>
-                    <li><a href="https://127.0.0.1:8002/details/pkn/insert" > Insert details Pokemon </a></li>
-                    <li><a href="https://127.0.0.1:8002/details/pkn/update" > Update details Pokemon </a></li>
-                    <li><a href="https://127.0.0.1:8002/details/pkn/delete" > Delete details Pokemon </a></li>
-                </ul>
-            </div>
-        </li>#}
+
         <li class="mb-1 nav-item">
             <button class="btn btn-toggle nav-link align-items-center rounded collapsed button-sidebar"
                     data-bs-toggle="collapse"
                     data-bs-target="#types-collapse" aria-expanded="false">
                 <span>Types</span>
-                <svg class="bi me-2 float-right" width="16" height="16"><use xlink:href="#types"/></svg>
+                <ion-icon name="sparkles-outline"></ion-icon>
             </button>
             <div class="collapse" id="types-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="https://127.0.0.1:8002/types/pkn/" > Liste des Types </a></li>
-                    <li><a href="https://127.0.0.1:8002/types/pkn/insert" > Créer un Types </a></li>
-                   {# <li><a href="https://127.0.0.1:8002/types/pkn/update" > Update Types </a></li>
-                    <li><a href="https://127.0.0.1:8002/types/pkn/delete" > Delete Types </a></li>#}
+                    <li><a href="{{ path('types_pkn') }}" class="rounded"> Liste des Types </a></li>
+                    <li><a href="{{ path('types_pkn_insert') }}" class="rounded"> Créer un Types </a></li>
+                    {# <li><a href="https://127.0.0.1:8002/types/pkn/update" > Update Types </a></li>
+                    <li><a href="https://127.0.0.1:8002/types/pkn/delete" > Delete Types </a></li> #}
+                </ul>
+            </div>
+        </li>
+
+        <li class="mb-1 nav-item">
+            <button class="btn btn-toggle nav-link align-items-center rounded collapsed button-sidebar"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#users-collapse" aria-expanded="false">
+                <span> Utilisateurs </span>
+                <ion-icon name="person-outline"></ion-icon>
+            </button>
+            <div class="collapse" id="users-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="{{ path('users') }}" class="rounded"> Liste des utilisateurs </a></li>
+                    <li><a href="{{ path('users_insert') }}" class="rounded"> Créer un utilisateur </a></li>
+                    {# <li><a href="https://127.0.0.1:8002/types/pkn/update" > Update Types </a></li>
+                    <li><a href="https://127.0.0.1:8002/types/pkn/delete" > Delete Types </a></li> #}
                 </ul>
             </div>
         </li>

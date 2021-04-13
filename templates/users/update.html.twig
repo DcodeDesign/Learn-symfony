@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UsersController!{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h1> <ion-icon name="person-outline"></ion-icon> Modifier l'utilisateur #{{ user.id }} </h1>
+
+    <div class="card">
+        <div class="card-header">
+        </div>
+        <div class="card-body">
+            <form method="POST">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" value="{{ user.email }}" class="form-control" name="email" id="email" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="nom" class="form-label">Nom</label>
+                <input type="text" value="{{ user.nom }}" class="form-control" id="nom" name="nom" placeholder="...">
+            </div>
+            <div class="mb-3">
+                <label for="prenom" class="form-label">Nom</label>
+                <input type="text" value="{{ user.prenom }}" class="form-control" id="prenom" name="prenom" placeholder="...">
+            </div>
+
+            <div class="mb-3 ">
+                <label for="avatar" class="form-label">Url avatar</label>
+
+                <input type="text" class="form-control" id="avatar" name="avatar" value="{{ user.avatar }}" placeholder="...">
+                <hr>
+                <img style="width:auto; height: 80px;" src="{{ user.avatar }}" alt="">
+
+            </div>
+
+            <input value="{{ csrf_token('56bbggsfgs787b6') }}" type="hidden" name="_token" />
+
+            <button type="submit" class="btn btn-primary">Mettre à jour</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

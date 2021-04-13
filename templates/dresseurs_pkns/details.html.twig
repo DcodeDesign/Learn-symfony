@@ -9,12 +9,16 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/workspace/Documents/WORKSPACE/WORKSPACE-TECHNOFUTURTIC/COURS/symfony/learn-symfony/src/Controller/DetailsDresseursPknsController.php'|file_link(0) }}">src/Controller/DetailsDresseursPknsController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/workspace/Documents/WORKSPACE/WORKSPACE-TECHNOFUTURTIC/COURS/symfony/learn-symfony/templates/details_dresseurs_pkns/index.html.twig'|file_link(0) }}">templates/details_dresseurs_pkns/index.html.twig</a></code></li>
-    </ul>
+    <h1> <ion-icon name="people-circle-outline"></ion-icon> Hello {{ controller_name }}! ✅</h1>
+    <div class="card">
+        <div class="card-header">
+            Featured
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
 </div>
 {% endblock %}

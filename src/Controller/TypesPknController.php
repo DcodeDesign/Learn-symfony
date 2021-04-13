@@ -16,7 +16,15 @@ class TypesPknController extends AbstractController
         ]);
     }
 
-    #[Route('/types/pkn/insert', name: 'types_pkn_insert')]
+    #[Route('/details/types/{id}', name: 'types_pkn_details')]
+    public function details(): Response
+    {
+        return $this->render('types_pkn/details.html.twig', [
+            'controller_name' => 'DetailsTypesPknController',
+        ]);
+    }
+
+    #[Route('/types/insert', name: 'types_pkn_insert')]
     public function insert(): Response
     {
         return $this->render('types_pkn/insert.html.twig', [
@@ -24,7 +32,7 @@ class TypesPknController extends AbstractController
         ]);
     }
 
-    #[Route('/types/pkn/delete', name: 'types_pkn_delete')]
+    #[Route('/types/delete/{id}', name: 'types_pkn_delete')]
     public function delete(): Response
     {
         return $this->render('types_pkn/delete.html.twig', [
@@ -32,7 +40,7 @@ class TypesPknController extends AbstractController
         ]);
     }
 
-    #[Route('/types/pkn/update', name: 'types_pkn_update')]
+    #[Route('/types/update/{id}', name: 'types_pkn_update')]
     public function update(): Response
     {
         return $this->render('types_pkn/update.html.twig', [

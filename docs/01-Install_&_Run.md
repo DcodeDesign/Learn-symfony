@@ -24,7 +24,7 @@ To switch between versions, use the following command:
 
 Symfony refresh version 
 
-    > symfony local:php:refresh
+     > symfony local:php:refresh
 
 ---
 
@@ -46,6 +46,7 @@ Symfony refresh version
 ## init new Project 
     > symfony check:requirements
     > composer create-project symfony/website-skeleton my_project_name
+    > symfony new my_projet_name --full
 
 ---
 

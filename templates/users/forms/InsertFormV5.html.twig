@@ -1,0 +1,23 @@
+<form method="POST">
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <input type="text" class="form-control" id="nom" name="nom" placeholder="...">
+    </div>
+    <div class="mb-3">
+        <label for="prenom" class="form-label">Prenom</label>
+        <input type="text" class="form-control" id="prenom" name="prenom" placeholder="...">
+    </div>
+
+    <div class="mb-3">
+        <label for="avatar" class="form-label">Url avatar</label>
+        <input type="text" class="form-control" id="avatar" name="avatar" placeholder="...">
+    </div>
+
+    <input value="{{ csrf_token('56bbggsfgs787b6') }}" type="hidden" name="_token" />
+
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>

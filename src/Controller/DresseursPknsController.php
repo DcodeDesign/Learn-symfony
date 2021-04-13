@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DresseursPknsController extends AbstractController
 {
-    #[Route('/dresseurs/pkns', name: 'dresseurs_pkns')]
+    #[Route('/dresseurs', name: 'dresseurs_pkns')]
     public function index(): Response
     {
         return $this->render('dresseurs_pkns/index.html.twig', [
@@ -16,7 +16,15 @@ class DresseursPknsController extends AbstractController
         ]);
     }
 
-    #[Route('/dresseurs/pkns/insert', name: 'dresseurs_pkns_insert')]
+    #[Route('/details/dresseurs/{id}', name: 'dresseurs_pkns_details')]
+    public function details(): Response
+    {
+        return $this->render('dresseurs_pkns/details.html.twig', [
+            'controller_name' => 'DetailsDresseursPknsController',
+        ]);
+    }
+
+    #[Route('/dresseurs/insert', name: 'dresseurs_pkns_insert')]
     public function insert(): Response
     {
         return $this->render('dresseurs_pkns/insert.html.twig', [
@@ -24,7 +32,7 @@ class DresseursPknsController extends AbstractController
         ]);
     }
 
-    #[Route('/dresseurs/pkns/delete', name: 'dresseurs_pkns_delete')]
+    #[Route('/dresseurs/delete/{id}', name: 'dresseurs_pkns_delete')]
     public function delete(): Response
     {
         return $this->render('dresseurs_pkns/delete.html.twig', [
@@ -32,7 +40,7 @@ class DresseursPknsController extends AbstractController
         ]);
     }
 
-    #[Route('/dresseurs/pkns/update', name: 'dresseurs_pkns_update')]
+    #[Route('/dresseurs/update/{id}', name: 'dresseurs_pkns_update')]
     public function update(): Response
     {
         return $this->render('dresseurs_pkns/update.html.twig', [

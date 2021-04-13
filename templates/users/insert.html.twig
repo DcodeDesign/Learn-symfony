@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UsersController!{% endblock %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h1> <ion-icon name="person-outline"></ion-icon> Ajouter un nouvel utilisateur</h1>
+
+    <div class="card">
+        <div class="card-header">
+        </div>
+        <div class="card-body">
+            {% include './users/forms/InsertFormV1.html.twig' %}
+
+           {# {% include './users/forms/InsertFormV2.html.twig' %}
+
+            {% include './users/forms/InsertFormV3.html.twig' %}
+
+            {% include './users/forms/InsertFormV4.html.twig' %}
+
+            {% include './users/forms/InsertFormV5.html.twig' %}#}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UsersController!{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h1 class="title">
+            <ion-icon name="person-outline"></ion-icon>
+                Liste des utilisateurs
+        </h1>
+        <a class="btn btn-secondary float-right "
+           href="{{ path('users_insert') }}" > Créer un utilisateur </a>
+        <table class="table table-dark table-striped shadow p-3 mb-5 bg-body rounded">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Image</th>
+                <th scope="col">Email</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in users %}
+                <tr>
+                    <th scope="row"> {{ item.id }}</th>
+                    <td><img style="width:auto; height: 30px;" src="{{ item.avatar }}" alt=""></td>
+                    <td>{{ item.email }}</td>
+                    <td>{{ item.nom }}</td>
+                    <td>{{ item.prenom }}</td>
+                    <td class="action">
+                        <a href="{{ path('users_details', {'id': item.id}) }}" class="btn btn-secondary">
+                            <ion-icon class="icon" name="eye-outline"></ion-icon>
+                        </a>
+                        <a href="{{ path('users_update', {'id': item.id}) }}" class="btn btn-secondary">
+                            <ion-icon class="icon" name="create-outline"></ion-icon>
+                        </a>
+
+                        {# <a href="{{ path('users_delete', {'id': item.id }) }}" class="btn btn-secondary">
+                        <ion-icon class="icon" name="trash-outline"></ion-icon></a> #}
+
+                        <button type="button" class="btn btn-secondary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalDeleteUser"
+                                data-bs-id="{{ item.id }}"
+                                data-bs-nom="{{ item.nom }}"
+                                data-bs-prenom="{{ item.prenom }}"
+                                data-bs-url="{{ path("users_delete", {'id': item.id}) }}">
+                            <ion-icon class="icon" name="trash-outline"></ion-icon>
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% include './commons/modals/deleteUser/modalDeleteUser.html.twig' %}
+{% endblock %}
+
+
+

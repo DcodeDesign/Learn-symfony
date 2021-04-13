@@ -3,16 +3,84 @@
 {% block title %}Hello PknsController!{% endblock %}
 
 {% block body %}
-    <style>
-        .example-wrapper { margin: 1em auto; max-width: 1024px; width: 95%; font: 18px/1.5 sans-serif; }
-        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    </style>
+    <div class="example-wrapper" >
+        <div >
+            <h1 class="title"> <ion-icon name="logo-octocat"></ion-icon> Liste des Pokemons</h1>
+            <a class="btn btn-secondary float-right"
+               href="{{ path('pkns_insert') }}" > Créer un Pokemon </a>
+        </div>
 
-    <div class="example-wrapper">
-        <h1 class="title"> Liste des Pokemons</h1>
-        <a class="btn btn-secondary float-right "
-           href="https://127.0.0.1:8002/pkns/insert" > Créer un Pokemon </a>
-        <table class="table table-dark table-striped shadow p-3 mb-5 bg-body rounded">
+        <div class="row" style="overflow:auto;">
+            {% for pkns in allPkns %}
+            <div class="col-sm m-3">
+                <div class="card shadow-lg p-3 mb-5 bg-body rounded" style="width: 18rem;">
+                   {# <svg class="bd-placeholder-img card-img-top"
+                         width="100%"
+                         height="180"
+                         xmlns="http://www.w3.org/2000/svg"
+                         role="img"
+                         aria-label="Placeholder: Image cap"
+                         preserveAspectRatio="xMidYMid slice"
+                         focusable="false">
+                        #}{#<title>Placeholder</title>#}{#
+                        <rect width="100%" height="100%" fill="#868e96"></rect>
+                        #}{#<text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>#}{#
+                    </svg>#}
+                    <img class="bd-placeholder-img card-img-top" src="assets/images/{{ pkns.numPokedex }}.jpg" alt="" />
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ pkns.nom }}</h5>
+
+                        {# <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> #}
+                        <div class="d-flex align-item-center justify-content-between">
+                            <a href="{{ path('pkn_details', {'id': pkns.id }) }}" class="btn btn-success m-1 flex-fill d-flex align-item-center justify-content-center">
+                                <ion-icon class="icon text-center" name="eye-outline"></ion-icon></a>
+                            <a href="{{ path('pkns_update', {'id': pkns.id }) }}" class="btn btn-primary m-1 flex-fill d-flex align-item-center justify-content-center">
+                                <ion-icon class="icon text-center" name="create-outline"></ion-icon></a>
+                            <a href="{{ path('pkns_delete', {'id': pkns.id }) }}" class="btn btn-danger m-1 flex-fill d-flex align-item-center justify-content-center">
+                                <ion-icon class="icon text-center" name="trash-outline"></ion-icon></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {#<div class="row">
+            <div class="col-sm m-2" >
+                <div class="card mb-3" >
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <svg class="bd-placeholder-img card-img-top"
+                                 width="100%"
+                                 height="100%"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 role="img"
+                                 aria-label="Placeholder: Image cap"
+                                 preserveAspectRatio="xMidYMid slice"
+                                 focusable="false">
+                                #}{#<title>Placeholder</title>#}{#
+                                <rect width="100%" height="100%" fill="#868e96"></rect>
+                                #}{#<text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>#}{#
+                            </svg>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <a href="{{ path('pkn_details', {'id': '1'})  }}" class="btn btn-secondary">
+                                    <ion-icon class="icon" name="eye-outline"></ion-icon></a>
+                                <a href="{{ path('pkns_update', {'id': '1'}) }}" class="btn btn-secondary">
+                                    <ion-icon class="icon" name="create-outline"></ion-icon></a>
+                                <a href="{{ path('pkns_delete', {'id': '1'}) }}" class="btn btn-secondary">
+                                    <ion-icon class="icon" name="trash-outline"></ion-icon></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-dark table-striped shadow p-3 mb-5 bg-body rounded m-3">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -27,16 +95,16 @@
                 <td>Dracaufeu</td>
                 <td>Lorem ipsum ...</td>
                 <td class="action">
-                    <a href="https://127.0.0.1:8002/details/pkn" class="btn btn-secondary">
+                    <a href="{{ path('pkn_details', {'id': '1'})  }}" class="btn btn-secondary">
                         <ion-icon class="icon" name="eye-outline"></ion-icon></a>
-                    <a href="https://127.0.0.1:8002/pkns/update" class="btn btn-secondary">
+                    <a href="{{ path('pkns_update', {'id': '1'}) }}" class="btn btn-secondary">
                         <ion-icon class="icon" name="create-outline"></ion-icon></a>
-                    <a href="https://127.0.0.1:8002/pkns/delete" class="btn btn-secondary">
+                    <a href="{{ path('pkns_delete', {'id': '1'}) }}" class="btn btn-secondary">
                         <ion-icon class="icon" name="trash-outline"></ion-icon></a>
                 </td>
             </tr>
             </tbody>
         </table>
-    </div>
+    </div>#}
 
 {% endblock %}
